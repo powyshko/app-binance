@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1">
+  <title>Welcome to App Binance</title>
 </head>
+
 <body>
-    <!-- Перенаправление на главную страницу, сохраняя исходный путь -->
-    <script>
-        sessionStorage.redirect = location.href;
-        location.replace('/'); // Замените '/' на '/your-repo-name/' если ваш сайт находится в подпапке
-    </script>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+
+  <script>
+    (function() {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
 </body>
+
 </html>
