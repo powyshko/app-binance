@@ -43,6 +43,10 @@ export default defineConfig({
       vueTemplate: true,
     }),
   ],
+  base: process.env.NODE_ENV === 'production' ? /app-binance/ : '/',
+  build: {
+    outDir: 'dist'
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
